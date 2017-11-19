@@ -1,3 +1,3 @@
-const pyDateformat = require("./index");
+const dateformat = require("./index");
 
-console.log(pyDateformat(new Date(), "%x"));
+console.log(dateformat(new Date(0), "foo: %A, %H:%M:%S"));

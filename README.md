@@ -1,33 +1,13 @@
 # pyslice
 
-An implementation of pythons slice in JS
+An implementation of pythons strftime() in JS.
+
+<https://docs.python.org/3.7/library/datetime.html#strftime-strptime-behavior>
 
 ## Usage
 
 ```js
-//py: "Abracadabra"[0]    =>"A"
-slice("Abracadabra", 0) //=>"A"
+const dateformat = require("pydateformat");
 
-//py: "Abracadabra"[-5]    =>"d"
-slice("Abracadabra", -5) //=>"d"
-
-
-//py: "Abracadabra"[0:5]     =>"Abrac"
-slice("Abracadabra", 0, 5) //=>"Abrac"
-
-//py: "Abracadabra"[3:-6]     =>"ac"
-slice("Abracadabra", 3, -6) //=>"ac"
-
-//py: "Abracadabra"[0:]          =>"Abracadabra"
-slice("Abracadabra", 0, false) //=>"Abracadabra"
-
-//py: "Abracadabra"[:-2]          =>"Abracadab"
-slice("Abracadabra", false, -2) //=>"Abracadab"
-
-
-//py: "Abracadabra"[0:6:1]      =>"Abracadab"
-slice("Abracadabra", 0, 6, 1) //=>"Abracadab"
-
-//py: "Abracadabra"[::-3]                =>"aacb"
-slice("Abracadabra", false, false, -3) //=>"aacb"
+dateformat(new Date(0), "foo: %A, %H:%M:%S") //=>"foo: Thursday, 1:00:00"
 ```

@@ -29,7 +29,8 @@
         "npm-run-all": "^4.1.2"
     },
     "dependencies": {
-        "lightdash": "^3.1.0"
+        "lightdash": "^3.1.0",
+        "moment": "^2.19.2"
     },
     "engines": {
         "node": ">=6"

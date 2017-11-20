@@ -29,6 +29,7 @@ const formatStringMap = mapFromObject({
     "%c": m => m.format("ddd MMM DD k:mm:ss YYYY"),
     "%x": m => m.format("MM/DD/YYYY"),
     "%X": m => m.format("k:mm:ss"),
+    "%%": () => "%",
 });
 
 /**

@@ -1,6 +1,6 @@
 {
     "name": "pydateformat",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "An implementation of python's date formatting in JS",
     "main": "index.js",
     "scripts": {

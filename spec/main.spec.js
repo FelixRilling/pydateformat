@@ -1,6 +1,6 @@
 "use strict";
 
-const formatDate = require("../index.js");
+const formatDate = require("../dist/pydateformat.common.js");
 
 const date = new Date(0);
 

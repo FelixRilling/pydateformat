@@ -2,20 +2,38 @@
     "name": "pydateformat",
     "version": "1.0.3",
     "description": "An implementation of python's date formatting in JS",
-    "main": "index.js",
+    "main": "./dist/pydateformat.common.js",
+    "module": "./dist/pydateformat.esm.js",
+    "types": "./types/main.d.ts",
+    "settings": {
+        "input": "main.ts",
+        "namespace": {
+            "module": "pydateformat",
+            "file": "pydateformat"
+        },
+        "external": ["lightdash", "moment"]
+    },
     "scripts": {
-        "start": "npm-run-all lint test",
-        "lint": "eslint index.js lib/",
+        "start": "npm-run-all lint build test docs",
+        "build": "rollup -c ./tasks/rollup.config.js",
+        "build:iife": "rollup -c ./tasks/rollup.config.iife.js",
+        "build:iife-min": "rollup -c ./tasks/rollup.config.iife-min.js",
+        "watch": "rollup -c ./tasks/rollup.config.js --watch",
+        "dist": "npm-run-all --parallel build build:iife build:iife-min",
+        "lint": "npm-run-all --parallel lint:ts lint:es",
+        "lint:ts": "tslint ./src/**/*.ts",
+        "lint:es": "eslint ./spec/**/*.js",
+        "fix": "npm-run-all fix:ts fix:es fix:prettier",
+        "fix:ts": "tslint ./src/**/*.ts --fix",
+        "fix:es": "eslint ./spec/**/*.js --fix",
+        "fix:prettier": "prettier ./src/**/* ./spec/**/* --write",
         "test": "jasmine"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/FelixRilling/pydateformat.git"
     },
-    "keywords": [
-        "python",
-        "dateformat"
-    ],
+    "keywords": ["python", "dateformat"],
     "author": "Felix Rilling",
     "license": "MIT",
     "bugs": {
@@ -23,14 +41,26 @@
     },
     "homepage": "https://github.com/FelixRilling/pydateformat#readme",
     "devDependencies": {
-        "eslint": "^4.12.1",
-        "eslint-plugin-node": "^5.2.1",
-        "jasmine": "^2.8.0",
-        "npm-run-all": "^4.1.2"
+        "@babel/core": "^7.0.0-beta.40",
+        "@babel/plugin-external-helpers": "^7.0.0-beta.40",
+        "@babel/preset-env": "^7.0.0-beta.40",
+        "eslint": "^4.18.1",
+        "jasmine": "^3.0.0",
+        "npm-run-all": "^4.1.2",
+        "prettier": "^1.10.2",
+        "rollup": "^0.55.5",
+        "rollup-plugin-babel": "^4.0.0-beta.2",
+        "rollup-plugin-json": "^2.3.0",
+        "rollup-plugin-node-resolve": "^3.0.3",
+        "rollup-plugin-typescript2": "^0.11.1",
+        "rollup-plugin-uglify-es": "0.0.1",
+        "tslint": "^5.9.1",
+        "typescript": "^2.7.2",
+        "uglify-es": "^3.3.10"
     },
     "dependencies": {
-        "lightdash": "^3.3.0",
-        "moment": "^2.19.3"
+        "lightdash": "^4.1.6",
+        "moment": "^2.20.1"
     },
     "engines": {
         "node": ">=6"

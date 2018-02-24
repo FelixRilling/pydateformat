@@ -1,11 +1,11 @@
 "use strict";
 
-const moment = require("moment/moment");
-const {
-    mapFromObject
-} = require("lightdash");
+import { mapFromObject } from "lightdash";
+import { Moment, MomentInput } from "moment";
+import moment from "moment/src/moment";
+import { replacerFn, replacerMap } from "./types";
 
-const formatStringMap = mapFromObject({
+const formatStringMap: replacerMap = <replacerMap>mapFromObject({
     "%a": m => m.format("ddd"),
     "%A": m => m.format("dddd"),
     "%w": m => m.format("d"),
@@ -29,28 +29,30 @@ const formatStringMap = mapFromObject({
     "%c": m => m.format("ddd MMM DD k:mm:ss YYYY"),
     "%x": m => m.format("MM/DD/YYYY"),
     "%X": m => m.format("k:mm:ss"),
-    "%%": () => "%",
+    "%%": () => "%"
 });
 
 /**
  * Formats a date with a given python format string
  *
- * @param {Date} date
+ * @param {MomentInput} date
  * @param {string} formatStr
  * @returns {string}
  */
-module.exports = function (date, formatStr) {
-    const momentInstance = moment(date);
-    let result = formatStr;
+const pydateformat = (date: MomentInput, formatStr: string): string => {
+    const dateMoment: Moment = moment(date);
+    let result: string = formatStr;
 
-    formatStringMap.forEach((itemFn, itemKey) => {
+    formatStringMap.forEach((itemFn: replacerFn, itemKey: string) => {
         if (result.includes(itemKey)) {
-            const regex = new RegExp(itemKey, "g");
-            const val = itemFn(momentInstance);
+            const replaceRegex = new RegExp(itemKey, "g");
+            const replaceVal = itemFn(dateMoment);
 
-            result = result.replace(regex, val);
+            result = result.replace(replaceRegex, replaceVal);
         }
     });
 
     return result;
 };
+
+export default pydateformat;

@@ -1,6 +1,6 @@
 {
     "name": "pydateformat",
-    "version": "1.0.3",
+    "version": "2.0.0",
     "description": "An implementation of python's date formatting in JS",
     "main": "./dist/pydateformat.common.js",
     "module": "./dist/pydateformat.esm.js",
@@ -11,7 +11,10 @@
             "module": "pydateformat",
             "file": "pydateformat"
         },
-        "external": ["lightdash", "moment"]
+        "external": [
+            "lightdash",
+            "moment"
+        ]
     },
     "scripts": {
         "start": "npm-run-all lint build test docs",
@@ -33,7 +36,10 @@
         "type": "git",
         "url": "git+https://github.com/FelixRilling/pydateformat.git"
     },
-    "keywords": ["python", "dateformat"],
+    "keywords": [
+        "python",
+        "dateformat"
+    ],
     "author": "Felix Rilling",
     "license": "MIT",
     "bugs": {

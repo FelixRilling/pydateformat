@@ -26,7 +26,7 @@ describe("Main", () => {
     });
 
     it("Hour", () => {
-        expect(formatDate(date, "%H %I %p")).toBe("1 1 AM");
+        expect(formatDate(date, "%H %I %p")).toBe("24 12 AM");
     });
 
     it("Minutes, Seconds and Microseconds", () => {

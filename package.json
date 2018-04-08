@@ -1,6 +1,6 @@
 {
     "name": "pydateformat",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "An implementation of python's date formatting in JS",
     "main": "./dist/pydateformat.common.js",
     "module": "./dist/pydateformat.esm.js",

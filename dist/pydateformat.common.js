@@ -37,7 +37,7 @@ const formatStringMap = lightdash.mapFromObject({
  * @returns {string}
  */
 const pydateformat = (date, formatStr) => {
-    const dateMoment = moment.utc(date);
+    const dateMoment = moment.isMoment(date) ? date : moment.utc(date);
     let result = formatStr;
     formatStringMap.forEach((itemFn, itemKey) => {
         if (result.includes(itemKey)) {

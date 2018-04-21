@@ -1,5 +1,5 @@
 import { mapFromObject } from 'lightdash';
-import { utc } from 'moment';
+import { isMoment, utc } from 'moment';
 
 const formatStringMap = mapFromObject({
     "%a": m => m.format("ddd"),
@@ -35,7 +35,7 @@ const formatStringMap = mapFromObject({
  * @returns {string}
  */
 const pydateformat = (date, formatStr) => {
-    const dateMoment = utc(date);
+    const dateMoment = isMoment(date) ? date : utc(date);
     let result = formatStr;
     formatStringMap.forEach((itemFn, itemKey) => {
         if (result.includes(itemKey)) {

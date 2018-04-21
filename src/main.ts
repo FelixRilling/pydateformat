@@ -1,5 +1,5 @@
 import { mapFromObject } from "lightdash";
-import { utc, Moment, MomentInput } from "moment";
+import { isMoment, Moment, MomentInput, utc } from "moment";
 import { replacerFn, replacerMap } from "./types";
 
 const formatStringMap: replacerMap = <replacerMap>mapFromObject({
@@ -37,7 +37,7 @@ const formatStringMap: replacerMap = <replacerMap>mapFromObject({
  * @returns {string}
  */
 const pydateformat = (date: MomentInput, formatStr: string): string => {
-    const dateMoment: Moment = utc(date);
+    const dateMoment: Moment = isMoment(date) ? date : utc(date);
     let result: string = formatStr;
 
     formatStringMap.forEach((itemFn: replacerFn, itemKey: string) => {

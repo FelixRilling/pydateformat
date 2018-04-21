@@ -1,7 +1,7 @@
 "use strict";
 
 const formatDate = require("../dist/pydateformat.common.js");
-
+const moment = require("moment");
 const date = new Date(0);
 
 describe("Main", () => {
@@ -30,6 +30,12 @@ describe("Main", () => {
     });
 
     it("Minutes, Seconds and Microseconds", () => {
+        expect(formatDate(date, "%M %S %f")).toBe("00 00 000000");
+    });
+
+    it("Moment", () => {
+        const m = moment(date);
+
         expect(formatDate(date, "%M %S %f")).toBe("00 00 000000");
     });
 });

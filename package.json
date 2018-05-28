@@ -11,10 +11,7 @@
             "module": "pydateformat",
             "file": "pydateformat"
         },
-        "external": [
-            "lightdash",
-            "moment"
-        ]
+        "external": ["lightdash", "moment"]
     },
     "scripts": {
         "start": "npm-run-all lint build test docs",
@@ -36,10 +33,7 @@
         "type": "git",
         "url": "git+https://github.com/FelixRilling/pydateformat.git"
     },
-    "keywords": [
-        "python",
-        "dateformat"
-    ],
+    "keywords": ["python", "dateformat"],
     "author": "Felix Rilling",
     "license": "MIT",
     "bugs": {
@@ -47,28 +41,25 @@
     },
     "homepage": "https://github.com/FelixRilling/pydateformat#readme",
     "dependencies": {
-        "lightdash": "^5.0.5",
+        "lightdash": "^7.0.0",
         "moment": "^2.22.1"
     },
     "devDependencies": {
-        "@babel/core": "^7.0.0-beta.44",
-        "@babel/plugin-external-helpers": "^7.0.0-beta.44",
-        "@babel/preset-env": "^7.0.0-beta.44",
+        "@babel/core": "^7.0.0-beta.49",
+        "@babel/plugin-external-helpers": "^7.0.0-beta.49",
+        "@babel/preset-env": "^7.0.0-beta.49",
         "eslint": "^4.19.1",
         "jasmine": "^3.1.0",
-        "npm-run-all": "^4.1.2",
-        "prettier": "^1.12.1",
-        "rollup": "^0.58.1",
+        "npm-run-all": "^4.1.3",
+        "prettier": "^1.13.0",
+        "rollup": "^0.59.4",
         "rollup-plugin-babel": "^4.0.0-beta.2",
-        "rollup-plugin-json": "^2.3.0",
-        "rollup-plugin-node-resolve": "^3.0.3",
-        "rollup-plugin-typescript2": "^0.13.0",
+        "rollup-plugin-json": "^3.0.0",
+        "rollup-plugin-node-resolve": "^3.3.0",
+        "rollup-plugin-typescript2": "^0.14.0",
         "rollup-plugin-uglify-es": "0.0.1",
-        "tslint": "^5.9.1",
+        "tslint": "^5.10.0",
         "typescript": "^2.8.3",
         "uglify-es": "^3.3.10"
-    },
-    "engines": {
-        "node": ">=6"
     }
 }

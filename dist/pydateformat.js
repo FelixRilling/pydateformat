@@ -28,7 +28,7 @@ var pydateformat = (function (lightdash,moment) {
       "%%": () => "%"
     });
     /**
-     * Formats a date with a given python format string
+     * Formats a date with a given python format string.
      *
      * @param {MomentInput} date
      * @param {string} formatStr

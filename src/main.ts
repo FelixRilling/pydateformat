@@ -1,6 +1,8 @@
 import { mapFromObject } from "lightdash";
 import { isMoment, Moment, MomentInput, utc } from "moment";
-import { replacerFn, replacerMap } from "./types";
+
+type replacerFn = (m: Moment) => string;
+type replacerMap = Map<string, replacerFn>;
 
 const formatStringMap: replacerMap = <replacerMap>mapFromObject({
     "%a": m => m.format("ddd"),
@@ -30,7 +32,7 @@ const formatStringMap: replacerMap = <replacerMap>mapFromObject({
 });
 
 /**
- * Formats a date with a given python format string
+ * Formats a date with a given python format string.
  *
  * @param {MomentInput} date
  * @param {string} formatStr
